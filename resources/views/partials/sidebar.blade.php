@@ -47,7 +47,7 @@
                                 <span class="text-sm font-medium"> {{ $category->name }} </span>
 
                                 <span class="shrink-0 transition duration-300 group-open:-rotate-180">
-                                    <i class="fa-solid fa-chevron-down"></i>
+                                    <i class="fa-regular fa-chevron-down text-sm"></i>
                                 </span>
                             </summary>
 
@@ -73,13 +73,13 @@
             @endforeach
             <div class="flex flex-col items-center justify-center gap-4 w-full mb-2 py-6">
                 <div class="justify-center items-center gap-4 flex w-full">
-                    <a class="block text-teal-600 text-lg font-medium" href="#">
+                    <a class="block text-teal-600 text-lg font-medium" href="https://github.com/iamluca137/it-tool">
                         <i class="fa-brands fa-github"></i>
                     </a>
-                    <a class="block text-teal-600 text-lg font-medium" href="#">
+                    <a class="block text-teal-600 text-lg font-medium" href="https://www.instagram.com/iamluca.137/">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a class="block text-teal-600 text-lg font-medium" href="#">
+                    <a class="block text-teal-600 text-lg font-medium" href="{{ route('about') }}">
                         <i class="fa-regular fa-circle-info"></i>
                     </a>
                 </div>
@@ -89,3 +89,5 @@
         </div>
     </div>
 </aside>
+git config --global user.name "iamluca137"
+git config --global user.email lv.thanh137@gmail.com

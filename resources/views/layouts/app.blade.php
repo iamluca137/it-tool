@@ -18,7 +18,7 @@
     @yield('styles')
 </head>
 
-<body class="bg-[#e7e9ea]">
+<body>
     <div class="antialiased bg-gray-50">
         @include('partials.sidebar')
         <main class="px-4 pb-12 md:ml-64 h-auto min-h-screen">

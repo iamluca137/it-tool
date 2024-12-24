@@ -1,4 +1,4 @@
-<header>
+<header class="py-2">
     <div class="flex h-16 w-full items-center gap-8 mb-5 py-2">
         <div class="flex justify-start items-center gap-4">
             <a class="block md:hidden text-teal-600 text-lg font-medium cursor-pointer" onclick="toggleSidebar()">
@@ -10,7 +10,6 @@
         </div>
 
         <div class="flex items-center justify-between w-full">
-            <!-- Phần Search -->
             <form class="flex items-center grow">
                 <div class="relative w-full">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -22,7 +21,6 @@
                 </div>
             </form>
 
-            <!-- Phần Button -->
             <div class="flex items-center ms-4">
                 <a class="group relative inline-flex items-center overflow-hidden rounded-full bg-teal-600 px-6 py-1.5 text-white focus:outline-none focus:ring active:bg-teal-500"
                     href="#">

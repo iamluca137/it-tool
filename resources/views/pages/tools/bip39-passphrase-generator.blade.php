@@ -1,0 +1,1 @@
+<!-- File: bip39-passphrase-generator.blade.php -->

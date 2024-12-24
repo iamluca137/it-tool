@@ -4,6 +4,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: #e7e9ea;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -27,4 +28,4 @@ html {
 
 .scrollbar-small::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.05);
-}
+} 

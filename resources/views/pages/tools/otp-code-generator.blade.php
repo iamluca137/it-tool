@@ -1,0 +1,1 @@
+<!-- File: otp-code-generator.blade.php -->

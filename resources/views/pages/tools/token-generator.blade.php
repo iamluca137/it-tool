@@ -6,7 +6,7 @@
             {{ $tool->name }}
         </h2>
         <hr>
-        <p class="hidden text-gray-500 sm:mt-4 sm:block">
+        <p class="text-gray-500 mt-4">
             {{ $tool->description }}
         </p>
     </div>

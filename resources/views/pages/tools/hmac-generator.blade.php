@@ -1,0 +1,1 @@
+<!-- File: hmac-generator.blade.php -->
