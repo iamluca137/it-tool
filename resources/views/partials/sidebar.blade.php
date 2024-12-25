@@ -89,5 +89,3 @@
         </div>
     </div>
 </aside>
-git config --global user.name "iamluca137"
-git config --global user.email lv.thanh137@gmail.com
