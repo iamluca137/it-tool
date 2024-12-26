@@ -28,4 +28,8 @@ html {
 
 .scrollbar-small::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.05);
-} 
+}
+
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
