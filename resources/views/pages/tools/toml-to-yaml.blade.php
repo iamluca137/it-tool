@@ -1,1 +1,0 @@
-<!-- File: toml-to-yaml.blade.php -->

@@ -1,1 +1,0 @@
-<!-- File: lorem-ipsum-generator.blade.php -->

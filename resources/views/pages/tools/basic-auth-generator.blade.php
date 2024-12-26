@@ -1,1 +1,0 @@
-<!-- File: basic-auth-generator.blade.php -->

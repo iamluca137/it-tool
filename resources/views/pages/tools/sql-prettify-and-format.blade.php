@@ -1,1 +1,0 @@
-<!-- File: sql-prettify-and-format.blade.php -->

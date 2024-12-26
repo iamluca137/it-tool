@@ -1,1 +1,0 @@
-<!-- File: text-to-ascii-binary.blade.php -->

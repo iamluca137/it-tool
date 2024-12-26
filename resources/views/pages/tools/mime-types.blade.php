@@ -1,1 +1,0 @@
-<!-- File: mime-types.blade.php -->

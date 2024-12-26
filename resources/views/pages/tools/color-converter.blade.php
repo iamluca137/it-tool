@@ -1,1 +1,0 @@
-<!-- File: color-converter.blade.php -->

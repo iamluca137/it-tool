@@ -1,1 +1,0 @@
-<!-- File: emoji-picker.blade.php -->

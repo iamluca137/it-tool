@@ -1,1 +1,0 @@
-<!-- File: hash-text.blade.php -->

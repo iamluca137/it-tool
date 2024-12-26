@@ -1,1 +1,0 @@
-<!-- File: crontab-generator.blade.php -->

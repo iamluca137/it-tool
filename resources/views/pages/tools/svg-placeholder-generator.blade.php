@@ -1,1 +1,0 @@
-<!-- File: svg-placeholder-generator.blade.php -->

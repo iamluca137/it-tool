@@ -1,1 +1,0 @@
-<!-- File: chronometer.blade.php -->

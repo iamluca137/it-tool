@@ -1,1 +1,0 @@
-<!-- File: wifi-qr-code-generator.blade.php -->
