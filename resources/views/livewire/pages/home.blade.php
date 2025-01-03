@@ -11,7 +11,8 @@
                     <a href="{{ route("tools.$item->slug") }}" wire:navigate class="flex items-center">
                         <i class="{{ $item->icon }} text-2xl text-gray-700"></i>
                     </a>
-                    <i class="fa-solid fa-bookmark text-teal-600"></i>
+                    <i class="fa-solid fa-bookmark text-teal-600 cursor-pointer hover:!text-teal-500"
+                       wire:click="favorite('{{$item->slug}}')"></i>
                 </div>
 
                 <a href="{{ route("tools.$item->slug") }}" wire:navigate>
@@ -22,7 +23,7 @@
 
                 <a href="{{ route("tools.$item->slug") }}" wire:navigate>
                     <p class="mt-2 text-sm/relaxed text-gray-500 overflow-hidden text-ellipsis"
-                        style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                       style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
                         {{ $item->description }}
                     </p>
                 </a>
@@ -42,8 +43,13 @@
                         <a href="{{ route("tools.$item->slug") }}" wire:navigate class="flex items-center">
                             <i class="{{ $item->icon }} text-2xl text-gray-700"></i>
                         </a>
-                        <i class="fa-regular fa-bookmark text-gray-700"></i>
-                        {{-- <i class="fa-solid fa-bookmark"></i> --}}
+                        @if(in_array($item, $favorites))
+                            <i class="fa-solid fa-bookmark text-teal-600 cursor-pointer hover:!text-teal-500"
+                               wire:click="favorite('{{$item->slug}}')"></i>
+                        @else
+                            <i class="fa-regular fa-bookmark text-gray-700 cursor-pointer"
+                               wire:click="favorite('{{$item->slug}}')"></i>
+                        @endif
                     </div>
 
                     <a href="{{ route("tools.$item->slug") }}" wire:navigate>
@@ -54,7 +60,7 @@
 
                     <a href="{{ route("tools.$item->slug") }}" wire:navigate>
                         <p class="mt-2 text-sm/relaxed text-gray-500 overflow-hidden text-ellipsis"
-                            style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
+                           style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
                             {{ $item->description }}
                         </p>
                     </a>
