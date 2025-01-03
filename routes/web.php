@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 // Pages
 Route::get('/', Home::class)->name('home');
 Route::get('/about', About::class)->name('about');
-
+Route::get('/favorite/{$tool}', [Home::class, 'favorite'])->name('favorite');
 // Tools
 Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/token-generator', TokenGenerator::class)->name('token-generator');
