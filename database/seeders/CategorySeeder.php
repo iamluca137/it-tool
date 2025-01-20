@@ -23,12 +23,12 @@ class CategorySeeder extends Seeder
                 'subcategories' => [
                     [
                         'name' => 'Token generator',
-                        'description' => 'Generate a secure random token for various use cases.',
+                        'description' => 'Generate random string with the chars you want, uppercase or lowercase letters, numbers and/or symbols.',
                         'icon' => 'fa-regular fa-shuffle',
                     ],
                     [
                         'name' => 'Hash text',
-                        'description' => 'Convert text into a secure hash value.',
+                        'description' => 'Hash a text string using the function you need : MD5, SHA1, SHA256, SHA224, SHA512, SHA384, SHA3 or RIPEMD160',
                         'icon' => 'fa-regular fa-eye-slash',
                     ],
                     [

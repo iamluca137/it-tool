@@ -32,7 +32,8 @@
                                     <div class="inline-flex items-center">
                                         <img src="{{ asset('images/countries/' . $language->icon) }}" class="h-5"
                                              alt="{{$language->name}}"/>
-                                        <span class="ps-2">{{ $language->name }} ({{ strtoupper($language->code) }})</span>
+                                        <span
+                                            class="ps-2">{{ $language->name }} ({{ strtoupper($language->code) }})</span>
                                     </div>
                                 </a>
                             </li>
@@ -43,7 +44,8 @@
             @foreach ($categories as $category)
                 <ul class="space-y-1">
                     <li>
-                        <details class="group [&_summary::-webkit-details-marker]:hidden">
+                        <details
+                            class="group [&_summary::-webkit-details-marker]:hidden" {{ $category->subcategories->contains(fn($subCategory) => request()->routeIs("tools.$subCategory->slug")) ? 'open' : '' }}>
                             <summary
                                 class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                 <span class="text-sm font-medium"> {{ $category->name }} </span>
@@ -57,7 +59,7 @@
                                 @foreach ($category->subcategories as $subCategory)
                                     <li>
                                         <a href="{{ route("tools.$subCategory->slug") }}" wire:navigate
-                                           class="flex justify-start items-center rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                           class="flex justify-start items-center rounded-lg px-4 py-2 text-sm font-medium {{ request()->routeIs("tools.$subCategory->slug") ? 'text-teal-600' : 'text-gray-500' }} hover:bg-gray-50 hover:text-teal-600">
                                             <span class="shrink-0">
                                                 <i class="{{ $subCategory->icon }}"></i>
                                             </span>

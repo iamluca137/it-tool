@@ -2,6 +2,7 @@
 
 use App\Livewire\Pages\About;
 use App\Livewire\Pages\Home;
+use App\Livewire\Pages\Tools\HashText;
 use App\Livewire\Pages\Tools\TokenGenerator;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,7 @@ Route::get('/favorite/{$tool}', [Home::class, 'favorite'])->name('favorite');
 // Tools
 Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/token-generator', TokenGenerator::class)->name('token-generator');
+    Route::get('/hash-text', HashText::class)->name('hash-text');
     Route::get('/ascii-art-text-generator', TokenGenerator::class)->name('ascii-art-text-generator');
     Route::get('/base64-file-converter', TokenGenerator::class)->name('base64-file-converter');
     Route::get('/base64-string-encoder-decoder', TokenGenerator::class)->name('base64-string-encoder-decoder');
@@ -34,7 +36,6 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/escape-html-entities', TokenGenerator::class)->name('escape-html-entities');
     Route::get('/eta-calculator', TokenGenerator::class)->name('eta-calculator');
     Route::get('/git-cheatsheet', TokenGenerator::class)->name('git-cheatsheet');
-    Route::get('/hash-text', TokenGenerator::class)->name('hash-text');
     Route::get('/hmac-generator', TokenGenerator::class)->name('hmac-generator');
     Route::get('/html-wysiwyg-editor', TokenGenerator::class)->name('html-wysiwyg-editor');
     Route::get('/http-status-codes', TokenGenerator::class)->name('http-status-codes');
