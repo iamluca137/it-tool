@@ -1,6 +1,6 @@
 <section>
     <span class="flex items-center mb-3">
-        <span class="pr-6  font-medium text-gray-500">Your favorite tools</span>
+        <span class="pr-6 font-medium text-gray-500">Your favorite tools</span>
     </span>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         @foreach ($favorites as $item)
