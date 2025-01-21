@@ -33,7 +33,7 @@ class CategorySeeder extends Seeder
                     ],
                     [
                         'name' => 'Bcrypt',
-                        'description' => 'Generate a secure hash using the Bcrypt algorithm.',
+                        'description' => 'Hash and compare text string using bcrypt. Bcrypt is a password-hashing function based on the Blowfish cipher.',
                         'icon' => 'fa-regular fa-key',
                     ],
                     [
