@@ -5,6 +5,7 @@ use App\Livewire\Pages\Home;
 use App\Livewire\Pages\Tools\HashText;
 use App\Livewire\Pages\Tools\TokenGenerator;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Pages\Tools\Bcrypt;
 
 // Pages
 Route::get('/', Home::class)->name('home');
@@ -18,7 +19,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/base64-file-converter', TokenGenerator::class)->name('base64-file-converter');
     Route::get('/base64-string-encoder-decoder', TokenGenerator::class)->name('base64-string-encoder-decoder');
     Route::get('/basic-auth-generator', TokenGenerator::class)->name('basic-auth-generator');
-    Route::get('/bcrypt', TokenGenerator::class)->name('bcrypt');
+    Route::get('/bcrypt', Bcrypt::class)->name('bcrypt');
     Route::get('/benchmark-builder', TokenGenerator::class)->name('benchmark-builder');
     Route::get('/bip39-passphrase-generator', TokenGenerator::class)->name('bip39-passphrase-generator');
     Route::get('/camera-recorder', TokenGenerator::class)->name('camera-recorder');

@@ -33,7 +33,7 @@ class HashText extends Component
         $this->generateHashes();
     }
 
-    public function generateHashes(): void
+    private function generateHashes(): void
     {
         $this->hashedResults = [];
 
@@ -56,7 +56,6 @@ class HashText extends Component
 
     public function render()
     {
-        $slug = 'hash-text';
         $tool = SubCategory::firstWhere('slug', 'hash-text');
         return view('livewire.pages.tools.hash-text', [
             'tool' => $tool,
