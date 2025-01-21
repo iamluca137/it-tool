@@ -11,22 +11,55 @@ use Livewire\Component;
 #[Title('Hash Text - IT Tools')]
 class HashText extends Component
 {
-    public $typeEncrypts = [
-        'MD5',
-        'SHA1',
-        'SHA256',
-        'SHA224',
-        'SHA512',
-        'SHA384',
-        'SHA3',
-        'RIPEMD160',
-    ];
+    public $text = '';
+    public $hashAlgorithms = ['md5', 'sha1', 'sha256', 'sha224', 'sha512/224', 'sha384', 'sha3-224', 'ripemd160'];
+    public $selectedFormat = 'Hexadecimal';
+    public $formats = ['Binary', 'Hexadecimal', 'Base64', 'Base64url'];
+    public $hashedResults = [];
+
+    public function mount(): void
+    {
+        $this->generateHashes();
+    }
+
+    public function hashText(): void
+    {
+        $this->generateHashes();
+    }
+
+    public function changeSelectedFormat($format): void
+    {
+        $this->selectedFormat = $format;
+        $this->generateHashes();
+    }
+
+    public function generateHashes(): void
+    {
+        $this->hashedResults = [];
+
+        foreach ($this->hashAlgorithms as $algorithm) {
+            $hash = hash($algorithm, $this->text, true);
+            $this->hashedResults[$algorithm] = $this->convertOutput($hash);
+        }
+    }
+
+    private function convertOutput($hash): string
+    {
+        return match ($this->selectedFormat) {
+            'Binary' => implode(' ', array_map('decbin', unpack('C*', $hash))),
+            'Hexadecimal' => bin2hex($hash),
+            'Base64' => base64_encode($hash),
+            'Base64url' => rtrim(strtr(base64_encode($hash), '+/', '-_'), '='),
+            default => bin2hex($hash),
+        };
+    }
+
     public function render()
     {
         $slug = 'hash-text';
-        $tool = SubCategory::where('slug', $slug)->first();
+        $tool = SubCategory::firstWhere('slug', 'hash-text');
         return view('livewire.pages.tools.hash-text', [
-            'tool' => $tool
+            'tool' => $tool,
         ]);
     }
 }

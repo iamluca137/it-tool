@@ -12,50 +12,43 @@
         <div class="rounded-md bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
             <div class="space-y-4">
                 <div>
-                    <label for="text-hash" class="block mb-2 text-sm font-medium text-gray-900">Your text to hash:</label>
-                    <textarea id="text-hash" rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 focus:ring-teal-600 focus:border-teal-600"
-                        placeholder="Your string to hash:"></textarea>
+                    <label for="text-hash" class="block mb-2 text-sm font-medium text-gray-900">Your text to
+                        hash:</label>
+                    <textarea id="text-hash" rows="3"
+                              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 focus:ring-teal-600 focus:border-teal-600"
+                              placeholder="Your string to hash..." wire:model="text"></textarea>
+                </div>
+                <div class="flex justify-center items-center">
+                    <button type="button" wire:click="hashText"
+                            class="text-white bg-teal-600 hover:bg-teal-500 focus:ring-0 rounded-md text-sm px-5 py-2 text-center w-full font-bold">
+                        Hash it!
+                    </button>
                 </div>
                 <div class="py-4">
                     <hr>
                 </div>
                 <div>
-                    <label for="type-text-hash" class="block mb-2 text-sm font-medium text-gray-900">Digest
+                    <label for="encoding" class="block mb-2 text-sm font-medium text-gray-900">Digest
                         encoding</label>
-                    <select id="type-text-hash"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-teal-600 focus:border-blue-500 block w-full p-1.5">
-                        <option value="US">Binary (base 2)</option>
-                        <option value="CA">Hexadecimal (base 16)</option>
-                        <option value="FR">Base64 (base 64)</option>
-                        <option value="DE">Base64url (base 64 with url safe chars)</option>
-                    </select>
+                    <ul
+                        class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-md sm:flex">
+                        @foreach ($formats as $format)
+                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+                                <button wire:click="changeSelectedFormat('{{ $format }}')"
+                                        class="w-full py-2 text-sm text-black hover:bg-gray-100 hover:text-teal-600 {{$selectedFormat === $format ? "bg-gray-100 text-teal-600 font-bold" : ""}}">{{ $format }}</button>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
                 <div class="w-full">
-                    @foreach ($typeEncrypts as $type)
-                        <div class="flex items-center">
+                    @foreach ($hashedResults as $algorithm => $result)
+                        <div class="grid grid-cols-4">
                             <button
-                                class="flex-shrink-0 z-10 inline-flex items-center py-1.5 px-4 text-sm  text-center text-black bg-gray-200  border rounded-sm focus:ring-0 min-w-1/3">{{ $type }}</button>
-                            <div class="relative w-full">
-                                <input id="account-id" type="text"
-                                    class="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-md focus:ring-teal-600 focus:border-teal-600 block w-full p-1.5"
-                                    value="fdasfdas" disabled readonly>
-                                <button data-copy-to-clipboard-target="account-id"
-                                    data-tooltip-target="tooltip-account-id"
-                                    class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500  hover:bg-gray-100  rounded-md p-2 inline-flex items-center justify-center">
-                                    <span id="default-icon-account-id">
-                                        <i class="fa-regular fa-copy"></i>
-                                    </span>
-                                    <span id="success-icon-account-id" class="hidden inline-flex items-center">
-                                        <i class="fa-regular fa-check"></i>
-                                    </span>
-                                </button>
-                                <div id="tooltip-account-id" role="tooltip"
-                                    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-md shadow-sm opacity-0 tooltip ">
-                                    <span id="default-tooltip-message-account-id">Copy to clipboard</span>
-                                    <span id="success-tooltip-message-account-id" class="hidden">Copied!</span>
-                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                </div>
+                                class="flex-shrink-0 z-10 inline-flex items-center py-1.5 px-4 text-sm  text-center text-black bg-gray-100 rounded-l-md focus:ring-0 col-span-1 my-1">{{ strtoupper($algorithm) }}</button>
+                            <div class="relative w-full col-span-3 my-1 select-none">
+                                <input id="{{ $algorithm }}" type="text"
+                                       class="bg-white border border-gray-200 text-gray-500 text-sm rounded-r-md focus:ring-teal-600 focus:border-teal-600 block w-full p-2"
+                                       value="{{ $result }}" disabled readonly>
                             </div>
                         </div>
                     @endforeach
