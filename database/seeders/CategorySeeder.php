@@ -37,13 +37,8 @@ class CategorySeeder extends Seeder
                         'icon' => 'fa-regular fa-key',
                     ],
                     [
-                        'name' => 'UUIDs generator',
-                        'description' => 'Create unique identifiers (UUIDs) for your applications.',
-                        'icon' => 'fa-regular fa-fingerprint',
-                    ],
-                    [
                         'name' => 'ULID generator',
-                        'description' => 'Create unique identifiers (UUIDs) for your applications.',
+                        'description' => 'Generate random Universally Unique Lexicographically Sortable Identifier (ULID).',
                         'icon' => 'fa-regular fa-arrow-down-9-1',
                     ],
                     [
