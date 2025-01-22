@@ -97,13 +97,9 @@ class TokenGenerator extends Component
         $this->generateToken();
     }
 
-    public function copyToClipboard(): void
-    {
-        $this->dispatch('copy-to-clipboard', ['text' => $this->generatedToken]);
-    }
-
     public function refresh(): void
     {
+        $this->reset('length');
         $this->generateToken();
     }
 
