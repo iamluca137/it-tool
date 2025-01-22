@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Tools\Bcrypt;
 use App\Livewire\Pages\Tools\UlidGenerator;
 use App\Livewire\Pages\Tools\EncryptDecryptText;
+use App\Livewire\Pages\Tools\DatetimeConverter;
 
 // Pages
 Route::get('/', Home::class)->name('home');
@@ -30,7 +31,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/chronometer', TokenGenerator::class)->name('chronometer');
     Route::get('/color-converter', TokenGenerator::class)->name('color-converter');
     Route::get('/crontab-generator', TokenGenerator::class)->name('crontab-generator');
-    Route::get('/date-time-converter', TokenGenerator::class)->name('date-time-converter');
+    Route::get('/date-time-converter', DatetimeConverter::class)->name('date-time-converter');
     Route::get('/device-information', TokenGenerator::class)->name('device-information');
     Route::get('/email-normalizer', TokenGenerator::class)->name('email-normalizer');
     Route::get('/emoji-picker', TokenGenerator::class)->name('emoji-picker');

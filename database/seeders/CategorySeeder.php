@@ -90,7 +90,7 @@ class CategorySeeder extends Seeder
                         'name' => 'Date-time converter',
                         'description' => 'Convert between various date and time formats.',
                         'icon' => 'fa-regular fa-calendar-days',
-                        'status' => 0
+                        'status' => 1
                     ],
                     [
                         'name' => 'Integer base converter',
