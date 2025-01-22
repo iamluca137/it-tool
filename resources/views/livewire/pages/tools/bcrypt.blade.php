@@ -14,8 +14,7 @@
                 <h3 class="flex whitespace-pre-wrap not-prose font-bold">Hash</h3>
                 <div>
                     <label for="text-hash" class="block mb-2 text-sm font-medium text-gray-900">Your string:</label>
-                    <input type="text" id="text-hash" wire:model="text"
-                           value="{{ $text }}"
+                    <input type="text" id="text-hash" wire:model.live="text"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5"
                            placeholder="Your string..." required/>
                 </div>
@@ -31,9 +30,9 @@
                         <span id="success-message" class="hidden inline-flex items-center">Copied!</span>
                     </button>
                     <button
-                        class="inline-block rounded px-8 py-2 text-sm font-medium bg-teal-600 hover:bg-teal-500 focus:outline-none focus:ring-0 transition-all text-white"
-                        wire:click="hashText()">
-                        Hash
+                        class="inline-block rounded px-8 py-2 text-sm font-medium bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-0 transition-all"
+                        wire:click="refresh()">
+                        Refresh
                     </button>
                 </div>
             </div>
@@ -43,25 +42,21 @@
                 <h3 class="flex whitespace-pre-wrap not-prose font-bold">Compare string with hash</h3>
                 <div>
                     <label for="string-check" class="block mb-2 text-sm font-medium text-gray-900">Your string:</label>
-                    <input type="text" id="string-check" wire:model="stringCheck"
+                    <input type="text" id="string-check" wire:model.live="stringCheck"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5"
                            placeholder="Your string..." required/>
                 </div>
                 <div>
                     <label for="hash-check" class="block mb-2 text-sm font-medium text-gray-900">Your hash:</label>
-                    <input type="text" id="hash-check" wire:model="hashCheck"
+                    <input type="text" id="hash-check" wire:model.live="hashCheck"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5"
                            placeholder="Your hash..." required/>
                 </div>
                 <div class="mt-4 flex justify-center items-center gap-3">
                     <button
-                        class="inline-block rounded px-8 py-2 text-sm font-medium bg-teal-600 hover:bg-teal-500 focus:outline-none focus:ring-0 transition-all text-white"
-                        wire:click="compareHash()">
-                        Compare
-                    </button>
-                    <button
                         class="inline-block rounded px-8 py-2 text-sm font-medium bg-gray-100">
-                        Do they match? <span class="{{ $isMatch ? 'text-green-500' : 'text-red-500' }}">{{ $isMatch ? 'Yes' : 'No' }}</span>
+                        Do they match? <span
+                            class="{{ $isMatch ? 'text-green-500' : 'text-red-500' }}">{{ $isMatch ? 'Yes' : 'No' }}</span>
                     </button>
                 </div>
             </div>
