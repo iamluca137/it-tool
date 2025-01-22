@@ -23,7 +23,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-            $view->with('categories', Category::all());
+            $categories = Category::with(['subcategories' => function ($query) {
+                $query->where('status', 1);
+            }])->get();
+            $view->with('categories', $categories);
             $view->with('languages', Language::all());
         });
     }

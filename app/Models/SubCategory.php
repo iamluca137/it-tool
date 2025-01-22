@@ -9,9 +9,9 @@ class SubCategory extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['category_id', 'name', 'slug', 'description', 'icon'];
+    protected $fillable = ['category_id', 'name', 'slug', 'description', 'icon', 'status'];
 
-    public function category()
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class);
     }

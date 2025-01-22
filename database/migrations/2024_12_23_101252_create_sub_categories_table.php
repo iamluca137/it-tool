@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->string('icon')->nullable();
+            $table->string('status')->default('1')->comment('0: Inactive, 1: Active');
             $table->softDeletes();
             $table->timestamps();
         });
