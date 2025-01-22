@@ -47,7 +47,7 @@ class CategorySeeder extends Seeder
                     ],
                     [
                         'name' => 'Encrypt / decrypt text',
-                        'description' => 'Securely encrypt or decrypt text data.',
+                        'description' => 'Encrypt clear text and decrypt ciphertext using crypto algorithms like AES, TripleDES, Rabbit or RC4.',
                         'icon' => 'fa-regular fa-lock',
                         'status' => 1
                     ],

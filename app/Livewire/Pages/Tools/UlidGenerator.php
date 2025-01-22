@@ -9,7 +9,7 @@ use Livewire\Component;
 use Illuminate\Support\Str as Str;
 
 #[Layout('layout.app')]
-#[Title('Token Generator - IT Tools')]
+#[Title('ULID Generator - IT Tools')]
 class UlidGenerator extends Component
 {
     public $quantity = 1;
