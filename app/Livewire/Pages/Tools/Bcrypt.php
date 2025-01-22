@@ -12,7 +12,7 @@ use Livewire\Component;
 class Bcrypt extends Component
 {
     public $text = '';
-    public $hashedText = '';
+    public $hashedText;
     public $stringCheck;
     public $hashCheck;
     public $isMatch = false;
@@ -22,14 +22,35 @@ class Bcrypt extends Component
         $this->hashText();
     }
 
-    public function compareHash(): void
+    public function updatedText(): void
+    {
+        $this->hashText();
+    }
+
+    public function updatedStringCheck(): void
+    {
+        $this->compareHash();
+    }
+
+    public function updatedHashCheck(): void
+    {
+        $this->compareHash();
+    }
+
+    private function compareHash(): void
     {
         $this->isMatch = password_verify($this->stringCheck, $this->hashCheck);
     }
 
-    public function hashText(): void
+    private function hashText(): void
     {
         $this->hashedText = password_hash($this->text, PASSWORD_BCRYPT);
+    }
+
+    public function refresh(): void
+    {
+        $this->reset('text', 'stringCheck', 'hashCheck', 'isMatch');
+        $this->hashText();
     }
 
     public function render()
