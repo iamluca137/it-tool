@@ -15,7 +15,7 @@
                     <div class="grid grid-cols-1 gap-4">
                         <label class="flex justify-end items-center text-end cursor-pointer">
                             <span class="me-3 text-sm font-medium text-gray-900">Uppercase (ABC...)</span>
-                            <input type="checkbox" value="" class="sr-only peer"
+                            <input type="checkbox" class="sr-only peer"
                                    {{ $includeUppercase ? 'checked' : '' }} wire:click="updateIncludeUppercase()">
                             <div
                                 class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-2 peer-focus:ring-teal-600 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-teal-600 transition-all">
@@ -53,7 +53,7 @@
                     <div class="mb-4 flex justify-start items-center w-full">
                         <label for="price-range" class="block text-gray-600 w-1/4 text-sm">Length
                             ({{ $length }})</label>
-                        <input type="range" id="price-range" wire:click="updateLength($event.target.value)"
+                        <input type="range" id="price-range"
                                wire:model.live="length" class="w-full accent-teal-600 h-1 bg-gray-200 transition-all"
                                min="1" max="512" value="{{ $length }}">
                     </div>
@@ -61,12 +61,14 @@
                 <div>
                     <textarea
                         class="w-full rounded-md border-gray-200 p-3 text-sm bg-gray-50  border focus:ring-teal-500 focus:border-teal-500 text-center"
-                        readonly rows="8" id="token-generated" placeholder="The token...">{{ $generatedToken }}</textarea>
+                        readonly rows="8" id="token"
+                        placeholder="The token...">{{ $generatedToken }}</textarea>
                 </div>
                 <div class="mt-4 flex justify-center items-center gap-3">
-                    <button data-copy-to-clipboard-target="token-generated"
+                    <button data-copy-to-clipboard-target="token"
                             class="inline-block rounded px-8 py-2 text-sm font-medium bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-0 transition-all">
-                        Copy
+                        <span id="default-message">Copy</span>
+                        <span id="success-message" class="hidden inline-flex items-center">Copied!</span>
                     </button>
                     <button
                         class="inline-block rounded px-8 py-2 text-sm font-medium bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-0 transition-all"
@@ -81,7 +83,7 @@
 @script
 <script>
     window.addEventListener('load', function () {
-        const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'token-generated');
+        const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'token');
         const $defaultMessage = document.getElementById('default-message');
         const $successMessage = document.getElementById('success-message');
 

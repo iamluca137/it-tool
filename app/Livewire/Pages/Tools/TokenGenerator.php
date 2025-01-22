@@ -67,7 +67,7 @@ class TokenGenerator extends Component
         $this->generatedToken = $token;
     }
 
-    public function updateLength(int $length): void
+    public function updatedLength(int $length): void
     {
         $this->length = $length;
         $this->generateToken();
