@@ -7,6 +7,7 @@ use App\Livewire\Pages\Tools\TokenGenerator;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Tools\Bcrypt;
 use App\Livewire\Pages\Tools\UlidGenerator;
+use App\Livewire\Pages\Tools\EncryptDecryptText;
 
 // Pages
 Route::get('/', Home::class)->name('home');
@@ -34,7 +35,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/email-normalizer', TokenGenerator::class)->name('email-normalizer');
     Route::get('/emoji-picker', TokenGenerator::class)->name('emoji-picker');
     Route::get('/encode-decode-url-formatted-strings', TokenGenerator::class)->name('encode-decode-url-formatted-strings');
-    Route::get('/encrypt-decrypt-text', TokenGenerator::class)->name('encrypt-decrypt-text');
+    Route::get('/encrypt-decrypt-text', EncryptDecryptText::class)->name('encrypt-decrypt-text');
     Route::get('/escape-html-entities', TokenGenerator::class)->name('escape-html-entities');
     Route::get('/eta-calculator', TokenGenerator::class)->name('eta-calculator');
     Route::get('/git-cheatsheet', TokenGenerator::class)->name('git-cheatsheet');
