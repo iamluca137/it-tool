@@ -84,7 +84,6 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/ulid-generator', TokenGenerator::class)->name('ulid-generator');
     Route::get('/url-parser', TokenGenerator::class)->name('url-parser');
     Route::get('/user-agent-parser', TokenGenerator::class)->name('user-agent-parser');
-    Route::get('/uuids-generator', TokenGenerator::class)->name('uuids-generator');
     Route::get('/wifi-qr-code-generator', TokenGenerator::class)->name('wifi-qr-code-generator');
     Route::get('/xml-formatter', TokenGenerator::class)->name('xml-formatter');
     Route::get('/xml-to-json', TokenGenerator::class)->name('xml-to-json');
