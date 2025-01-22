@@ -6,6 +6,7 @@ use App\Livewire\Pages\Tools\HashText;
 use App\Livewire\Pages\Tools\TokenGenerator;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Tools\Bcrypt;
+use App\Livewire\Pages\Tools\UlidGenerator;
 
 // Pages
 Route::get('/', Home::class)->name('home');
@@ -81,7 +82,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/token-generator', TokenGenerator::class)->name('token-generator');
     Route::get('/toml-to-json', TokenGenerator::class)->name('toml-to-json');
     Route::get('/toml-to-yaml', TokenGenerator::class)->name('toml-to-yaml');
-    Route::get('/ulid-generator', TokenGenerator::class)->name('ulid-generator');
+    Route::get('/ulid-generator', UlidGenerator::class)->name('ulid-generator');
     Route::get('/url-parser', TokenGenerator::class)->name('url-parser');
     Route::get('/user-agent-parser', TokenGenerator::class)->name('user-agent-parser');
     Route::get('/wifi-qr-code-generator', TokenGenerator::class)->name('wifi-qr-code-generator');
