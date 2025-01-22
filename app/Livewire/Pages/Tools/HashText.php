@@ -13,7 +13,7 @@ class HashText extends Component
 {
     public $text = '';
     public $hashAlgorithms = ['md5', 'sha1', 'sha256', 'sha224', 'sha512/224', 'sha384', 'sha3-224', 'ripemd160'];
-    public $selectedFormat = 'Hexadecimal';
+    public $selectedEncoding = 'Hexadecimal';
     public $formats = ['Binary', 'Hexadecimal', 'Base64', 'Base64url'];
     public $hashedResults = [];
 
@@ -22,18 +22,17 @@ class HashText extends Component
         $this->generateHashes();
     }
 
-    public function hashText(): void
+    public function updatedText(): void
     {
         $this->generateHashes();
     }
 
-    public function changeSelectedFormat($format): void
+    public function updatedSelectedEncoding(): void
     {
-        $this->selectedFormat = $format;
         $this->generateHashes();
     }
 
-    public function generateHashes(): void
+    private function generateHashes(): void
     {
         $this->hashedResults = [];
 
@@ -45,7 +44,7 @@ class HashText extends Component
 
     private function convertOutput($hash): string
     {
-        return match ($this->selectedFormat) {
+        return match ($this->selectedEncoding) {
             'Binary' => implode(' ', array_map('decbin', unpack('C*', $hash))),
             'Hexadecimal' => bin2hex($hash),
             'Base64' => base64_encode($hash),
@@ -56,7 +55,6 @@ class HashText extends Component
 
     public function render()
     {
-        $slug = 'hash-text';
         $tool = SubCategory::firstWhere('slug', 'hash-text');
         return view('livewire.pages.tools.hash-text', [
             'tool' => $tool,

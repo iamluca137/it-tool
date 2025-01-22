@@ -16,29 +16,19 @@
                         hash:</label>
                     <textarea id="text-hash" rows="3"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 focus:ring-teal-600 focus:border-teal-600"
-                              placeholder="Your string to hash..." wire:model="text"></textarea>
+                              placeholder="Your string to hash..." wire:model.live="text"></textarea>
                 </div>
-                <div class="flex justify-center items-center">
-                    <button type="button" wire:click="hashText"
-                            class="text-white bg-teal-600 hover:bg-teal-500 focus:ring-0 rounded-md text-sm px-5 py-2 text-center w-full font-bold">
-                        Hash it!
-                    </button>
-                </div>
-                <div class="py-4">
+                <div class="py-3">
                     <hr>
                 </div>
                 <div>
-                    <label for="encoding" class="block mb-2 text-sm font-medium text-gray-900">Digest
-                        encoding</label>
-                    <ul
-                        class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-md sm:flex">
+                    <label for="encoding" class="block mb-2 text-sm font-medium text-gray-900">Digest encoding:</label>
+                    <select wire:model.live="selectedEncoding"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-teal-500 focus:border-teal-500 block w-full p-2">
                         @foreach ($formats as $format)
-                            <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
-                                <button wire:click="changeSelectedFormat('{{ $format }}')"
-                                        class="w-full py-2 text-sm text-black hover:bg-gray-100 hover:text-teal-600 {{$selectedFormat === $format ? "bg-gray-100 text-teal-600 font-bold" : ""}}">{{ $format }}</button>
-                            </li>
+                            <option value="{{ $format }}">{{ $format }}</option>
                         @endforeach
-                    </ul>
+                    </select>
                 </div>
                 <div class="w-full">
                     @foreach ($hashedResults as $algorithm => $result)
