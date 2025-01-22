@@ -13,7 +13,7 @@
             <div class="space-y-4">
                 <div>
                     <label for="quantity" class="block mb-2 text-sm font-medium text-gray-900">Quantity</label>
-                    <input type="number" id="quantity" wire:model.change="quantity" min="1" max="100"
+                    <input type="number" id="quantity" wire:model.live.debounce.0ms="quantity" min="1" max="100"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5"
                            required/>
                 </div>
