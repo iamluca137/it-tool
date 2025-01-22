@@ -17,10 +17,6 @@ class UlidGenerator extends Component
     public $formats = ['Raw', 'JSON'];
     public $selectedFormat = 'Raw';
 
-    protected $rules = [
-        'quantity' => 'required|integer|min:1|max:100',
-    ];
-
     public function mount(): void
     {
         $this->generateUlid();
@@ -29,7 +25,12 @@ class UlidGenerator extends Component
     // Change the quantity of ULID to generate
     public function updatedQuantity(): void
     {
-        $this->validateOnly('quantity');
+        if (!is_numeric($this->quantity) || $this->quantity < 1) {
+            $this->quantity = 1;
+        } elseif ($this->quantity > 100) {
+            $this->quantity = 100;
+        }
+
         $this->generateUlid();
     }
 
@@ -39,7 +40,7 @@ class UlidGenerator extends Component
         $this->generateUlid();
     }
 
-    public function generateUlid(): void
+    private function generateUlid(): void
     {
         $this->reset('ulidLists');
         for ($i = 0; $i < $this->quantity; $i++) {
