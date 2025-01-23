@@ -315,9 +315,9 @@ class CategorySeeder extends Seeder
                 'subcategories' => [
                     [
                         'name' => 'QR Code generator',
-                        'description' => 'Generate QR codes for various purposes.',
+                        'description' => 'Generate and download a QR code for a URL (or just plain text), and customize the background and foreground colors.',
                         'icon' => 'fa-regular fa-qrcode',
-                        'status' => 0
+                        'status' => 1
                     ],
                     [
                         'name' => 'WiFi QR Code generator',

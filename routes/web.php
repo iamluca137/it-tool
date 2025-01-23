@@ -9,6 +9,7 @@ use App\Livewire\Pages\Tools\Bcrypt;
 use App\Livewire\Pages\Tools\UlidGenerator;
 use App\Livewire\Pages\Tools\EncryptDecryptText;
 use App\Livewire\Pages\Tools\DatetimeConverter;
+use App\Livewire\Pages\Tools\QrcodeGenerator;
 
 // Pages
 Route::get('/', Home::class)->name('home');
@@ -65,7 +66,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/password-strength-analyser', TokenGenerator::class)->name('password-strength-analyser');
     Route::get('/pdf-signature-checker', TokenGenerator::class)->name('pdf-signature-checker');
     Route::get('/percentage-calculator', TokenGenerator::class)->name('percentage-calculator');
-    Route::get('/qr-code-generator', TokenGenerator::class)->name('qr-code-generator');
+    Route::get('/qr-code-generator', QrcodeGenerator::class)->name('qr-code-generator');
     Route::get('/random-port-generator', TokenGenerator::class)->name('random-port-generator');
     Route::get('/regex-cheatsheet', TokenGenerator::class)->name('regex-cheatsheet');
     Route::get('/regex-tester', TokenGenerator::class)->name('regex-tester');

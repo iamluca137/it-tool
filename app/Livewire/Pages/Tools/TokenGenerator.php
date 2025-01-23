@@ -104,9 +104,8 @@ class TokenGenerator extends Component
     }
 
     public function render()
-    {
-        $slug = 'token-generator';
-        $tool = SubCategory::where('slug', $slug)->first();
+    { 
+        $tool = SubCategory::firstWhere('slug', 'token-generator');
         return view('livewire.pages.tools.token-generator', [
             'tool' => $tool
         ]);
