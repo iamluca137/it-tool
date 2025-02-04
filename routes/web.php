@@ -10,6 +10,7 @@ use App\Livewire\Pages\Tools\UlidGenerator;
 use App\Livewire\Pages\Tools\EncryptDecryptText;
 use App\Livewire\Pages\Tools\DatetimeConverter;
 use App\Livewire\Pages\Tools\QrcodeGenerator;
+use App\Livewire\Pages\Tools\ColorConverter;
 
 // Pages
 Route::get('/', Home::class)->name('home');
@@ -30,7 +31,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/case-converter', TokenGenerator::class)->name('case-converter');
     Route::get('/chmod-calculator', TokenGenerator::class)->name('chmod-calculator');
     Route::get('/chronometer', TokenGenerator::class)->name('chronometer');
-    Route::get('/color-converter', TokenGenerator::class)->name('color-converter');
+    Route::get('/color-converter', ColorConverter::class)->name('color-converter');
     Route::get('/crontab-generator', TokenGenerator::class)->name('crontab-generator');
     Route::get('/date-time-converter', DatetimeConverter::class)->name('date-time-converter');
     Route::get('/device-information', TokenGenerator::class)->name('device-information');
