@@ -70,6 +70,12 @@ class CategorySeeder extends Seeder
                         'status' => 0
                     ],
                     [
+                        'name' => 'Password generator',
+                        'description' => 'Generate random passwords with the length you want, including numbers, letters, and special characters.',
+                        'icon' => 'fa-regular fa-key',
+                        'status' => 1
+                    ],
+                    [
                         'name' => 'Password strength analyser',
                         'description' => 'Discover the strength of your password with this client-side-only password strength analyser and crack time estimation tool.',
                         'icon' => 'fa-regular fa-i-cursor',

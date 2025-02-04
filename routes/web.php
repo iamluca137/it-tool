@@ -95,9 +95,11 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/xml-to-json', TokenGenerator::class)->name('xml-to-json');
     Route::get('/yaml-to-json-converter', TokenGenerator::class)->name('yaml-to-json-converter');
     Route::get('/yaml-to-toml', TokenGenerator::class)->name('yaml-to-toml');
+    Route::get('/password-generator', TokenGenerator::class)->name('password-generator');
 });
 
 // Fallback
 Route::fallback(function () {
     return redirect()->route('home');
 });
+
