@@ -120,7 +120,7 @@ class CategorySeeder extends Seeder
                         'name' => 'Color converter',
                         'description' => 'Convert colors between formats like HEX, RGB, and HSL.',
                         'icon' => 'fa-regular fa-palette',
-                        'status' => 0
+                        'status' => 1
                     ],
                     [
                         'name' => 'Case converter',
