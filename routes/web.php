@@ -11,6 +11,7 @@ use App\Livewire\Pages\Tools\EncryptDecryptText;
 use App\Livewire\Pages\Tools\DatetimeConverter;
 use App\Livewire\Pages\Tools\QrcodeGenerator;
 use App\Livewire\Pages\Tools\ColorConverter;
+use App\Livewire\Pages\Tools\PasswordStrengthAnalyser;
 
 // Pages
 Route::get('/', Home::class)->name('home');
@@ -64,7 +65,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::get('/open-graph-meta-generator', TokenGenerator::class)->name('open-graph-meta-generator');
     Route::get('/otp-code-generator', TokenGenerator::class)->name('otp-code-generator');
     Route::get('/outlook-safelink-decoder', TokenGenerator::class)->name('outlook-safelink-decoder');
-    Route::get('/password-strength-analyser', TokenGenerator::class)->name('password-strength-analyser');
+    Route::get('/password-strength-analyser', PasswordStrengthAnalyser::class)->name('password-strength-analyser');
     Route::get('/pdf-signature-checker', TokenGenerator::class)->name('pdf-signature-checker');
     Route::get('/percentage-calculator', TokenGenerator::class)->name('percentage-calculator');
     Route::get('/qr-code-generator', QrcodeGenerator::class)->name('qr-code-generator');
