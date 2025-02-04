@@ -71,9 +71,9 @@ class CategorySeeder extends Seeder
                     ],
                     [
                         'name' => 'Password strength analyser',
-                        'description' => 'Evaluate the strength and security of passwords.',
+                        'description' => 'Discover the strength of your password with this client-side-only password strength analyser and crack time estimation tool.',
                         'icon' => 'fa-regular fa-i-cursor',
-                        'status' => 0
+                        'status' => 1
                     ],
                     [
                         'name' => 'PDF signature checker',
